@@ -3,7 +3,7 @@ import logo from "../assets/hospital.png";
 
 export function Navbar() {
     return (
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
           <a className="navbar-brand" href="/">
           <img src={logo} alt="Hospital Logo" style={{ height: "40px" }} className="me-2" />
@@ -25,7 +25,7 @@ export function Navbar() {
               <ul className="navbar-nav me-auto">
                   
                   <li className="nav-item">
-                      <a className="nav-link" href="/patients">View Patients</a>
+                      <a className="nav-link" href="/list_patients">View Patients</a>
                   </li>
                   <li className="nav-item">
                       <a className="nav-link" href="/add_patients">Add Patient</a>

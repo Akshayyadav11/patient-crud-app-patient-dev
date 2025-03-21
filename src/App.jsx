@@ -5,6 +5,7 @@ import './App.css'
 import { Header } from './header/Header'
 import { Footer } from './footer/Footer'
 import { Navbar } from './navbar/Navbar'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +15,9 @@ function App() {
        <div className="d-flex flex-column min-v-100 mt-4">
         <Header></Header>
         
-        
+        <div className="content" style={{ marginTop: "100px", padding: "20px" }}>
+          <Outlet />
+        </div>
 
         <Footer />
       
