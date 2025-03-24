@@ -31,8 +31,8 @@ export async function deletePatientsById(id) {
 }
 
 
-export async function addPatient(empData) {
-   const resp = await axios.post(url, empData)
+export async function addPatient(patientData) {
+   const resp = await axios.post(url, patientData)
    console.log("Patient added successfully:", resp.data);
    return resp.data
    

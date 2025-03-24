@@ -32,8 +32,8 @@ export function PatientForm(){
     }
     function getDetails(ev){
         
-        console.log(ev.target.value);
-        console.log(ev.target.name);
+        console.log('ev.target.value--',ev.target.value);
+        console.log('ev.target.name--',ev.target.name);
         setPatient({...patient, [ev.target.name]:ev.target.value}); // copy, key value replace
       
     }
@@ -61,6 +61,8 @@ export function PatientForm(){
         }
         else{
             const add_data = await addPatient(patient);
+            console.log('add_data--',add_data);
+            
             if (add_data!=null) {
                 alert(`Patient with ${add_data.id} added successfully !`)
                 navigate('/list_patients')

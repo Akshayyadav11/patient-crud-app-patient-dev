@@ -8,7 +8,7 @@ export function PatientCard({patient, deletePatient}){
         <div className="card" style={{width: "18rem", margin:"10px"}}>
             <img src={patient.patientImg} className="card-img-top"  />
             <div className="card-body">
-                <h5 className="card-title"><span>#{patient.patientId}</span> <span>{patient.patientName}</span></h5>
+                <h5 className="card-title"><span>#{patient.id}</span> <span>{patient.patientName}</span></h5>
             </div>
             <ul className="list-group list-group-flush">
                 <li className="list-group-item"><i>Gender : </i><b>{patient.gender}</b></li>
