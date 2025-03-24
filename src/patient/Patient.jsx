@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAllPatientsAPI } from "../business_logic/crud";
+import { deletePatientsById, getAllPatientsAPI } from "../business_logic/crud";
 import { PatientCard } from "../patient_card/PatientCard";
 
 
@@ -18,12 +18,24 @@ export function Patient(){
     }
 
 
+    async function deletePatient(id) {
+
+        console.log("emp id",id);
+        
+        const del_result = await deletePatientsById(id);
+        console.log('del_result',del_result);
+        if (del_result !=null)
+            getAllPatient();
+    }
+
+
+
     useEffect(()=>{
         getAllPatient();
     },[]);
 
     /* mutiple cards : EmployeeCard: reused it  */
-    const patient_cards=neo_patients.map((patient, index)=><PatientCard key={"patient_card"+index} patient={patient}/>) 
+    const patient_cards=neo_patients.map((patient, index)=><PatientCard key={"patient_card"+index} patient={patient} deletePatient={deletePatient}/>) 
     /*UI : JSX, JS{}*/
     return( 
         <div>

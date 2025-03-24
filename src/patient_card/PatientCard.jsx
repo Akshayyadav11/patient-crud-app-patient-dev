@@ -2,7 +2,7 @@ import { Button } from "bootstrap";
 import { Link } from "react-router";
 
 /* single card design */
-export function PatientCard({patient}){
+export function PatientCard({patient, deletePatient}){
 
     return (
         <div className="card" style={{width: "18rem", margin:"10px"}}>
@@ -20,7 +20,7 @@ export function PatientCard({patient}){
             <div className="card-body">
                 <Link to={`/edit_patients/${patient.id}`} className="card-link" >Edit</Link>
                 
-                {/* <button onClick={()=>{deletePatient(patient.patient_Id)}} className="btn btn-link">Delete</button> */}
+                <button onClick={()=>{deletePatient(patient.id)}} className="btn btn-link">Delete</button>
 
                 {/* <a href="#" className="card-link" onClick={showAlert}>DELETE</a> {/* ()=>showAlert()  */}
                 {/* <a href="#" className="card-link" onClick={()=>{showpatientId(patient.patientId)}}>test</a> */}
