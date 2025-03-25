@@ -52,20 +52,26 @@ export function PatientForm(){
 
     async function handlePatientSubmit(eve){
         eve.preventDefault();
-        if(patient.id){
+        if(location.pathname.includes('edit_patients')){
             const update_data = await updatePatientsById(patient.id, patient)
             if (update_data!=null) {
                 alert(`Patient ${update_data.id} updated successfully !`)
                 navigate('/list_patients')
             }
+            else{
+                alert('Something went wrong')
+            }
         }
         else{
+            delete patient.id;
             const add_data = await addPatient(patient);
             console.log('add_data--',add_data);
             
             if (add_data!=null) {
                 alert(`Patient with ${add_data.id} added successfully !`)
                 navigate('/list_patients')
+            }else{
+                alert('Something went wrong')
             }
         
         }        

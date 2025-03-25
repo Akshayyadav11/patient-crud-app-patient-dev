@@ -11,9 +11,13 @@ export function Patient(){
 
     async function getAllPatient() {
         const result = await getAllPatientsAPI()
-        console.log('getAllPatient called : ',result);
-        
+        if(result!=null)
+        //console.log('getAllPatient called : ',result);
         setAllPatients(result);
+        else{
+            alert('Something went wrong')
+        }
+
        
     }
 
@@ -26,6 +30,9 @@ export function Patient(){
         console.log('del_result',del_result);
         if (del_result !=null)
             getAllPatient();
+        else{
+            alert('Something went wrong')
+        }
     }
 
 
