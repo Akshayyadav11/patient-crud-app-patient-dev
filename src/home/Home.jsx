@@ -23,7 +23,7 @@ export function Home(){
                 It can be built using various programming languages, frameworks, and databases.
             </p>
         
-
+{/* 
 <nav className="navbar navbar-expand-lg bg-body-tertiary">
 <div className="container-fluid">
   <a className="navbar-brand" href="#">Navbar</a>
@@ -43,7 +43,7 @@ export function Home(){
    
   </div>
 </div>
-</nav>
+</nav> */}
 <Outlet></Outlet>
 </>
 

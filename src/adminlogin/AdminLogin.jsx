@@ -27,10 +27,10 @@ export function AdminLogin(){
     return (
         <>
         <div className="p-5 bg-dark text-white">
-            <h4>ADMIN LOGIN FORM</h4>
+            <h4>ADMIN LOGIN</h4>
             <small>{errorMessage} </small>
             <form onSubmit={test_login}> 
-                <div className="mb-3">
+                <div className="mb-4">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                     <input type="email" className="form-control" ref={email} id="exampleInputEmail1"  autoComplete="username" />
                 </div>
@@ -38,8 +38,10 @@ export function AdminLogin(){
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                     <input type="password" className="form-control"  ref={password}  autoComplete="current-password" id="exampleInputPassword1" />
                 </div>
+                <div style={{ display: "flex", gap: "10px" }}>
                 <button type="submit" className="btn btn-primary">Login</button>
                 <button type="reset" className="btn btn-primary">Reset</button>
+                </div>
             </form>
         </div>
         </>
