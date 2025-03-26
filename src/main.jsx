@@ -8,6 +8,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getPatientsById } from './business_logic/crud.js'
 import { PatientForm } from './patient_form/PatientForm.jsx'
+import { Home } from './home/Home.jsx'
+import { CookiesProvider } from 'react-cookie'
+import { AdminLogin } from './adminlogin/AdminLogin.jsx'
+
 
 
 let routes=[
@@ -15,7 +19,11 @@ let routes=[
     path:'/',
     element:  <App />,
     children :[
-       
+      {
+           
+        path:'home',
+        element:<Home />
+      },
         {
             path:'list_patients',
             element:<Patient />
@@ -35,6 +43,10 @@ let routes=[
         element:<PatientForm />
         
     },
+    {
+      path:'adminlogin',
+      element:<AdminLogin />
+    }
     ]
   }
 ]
@@ -43,8 +55,9 @@ let browserRouter=createBrowserRouter(routes);
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={browserRouter}></RouterProvider>
-  </StrictMode>,
+  
+    <CookiesProvider>
+        <RouterProvider router={browserRouter}></RouterProvider>
+    </CookiesProvider>
+
 )

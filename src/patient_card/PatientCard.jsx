@@ -1,9 +1,10 @@
 import { Button } from "bootstrap";
+import { useCookies } from "react-cookie";
 import { Link } from "react-router";
 
 /* single card design */
 export function PatientCard({patient, deletePatient}){
-
+    const [cookies,setCookies, removeCookie] = useCookies();
     return (
         <div className="card" style={{width: "18rem", margin:"10px"}}>
             <img src={patient.patientImg} className="card-img-top"  />
@@ -18,10 +19,15 @@ export function PatientCard({patient, deletePatient}){
                 <li className="list-group-item"><i>Address : </i><b>{patient.address}</b></li>
             </ul>
             <div className="card-body">
+            {
+                 cookies.admin !=undefined  ? <>
                 <Link to={`/edit_patients/${patient.id}`} className="card-link" >Edit</Link>
                 
                 <button onClick={()=>{deletePatient(patient.id)}} className="btn btn-link">Delete</button>
-
+                </>
+                    :
+                    <small>Please login to update the details</small>
+            }
                 {/* <a href="#" className="card-link" onClick={showAlert}>DELETE</a> {/* ()=>showAlert()  */}
                 {/* <a href="#" className="card-link" onClick={()=>{showpatientId(patient.patientId)}}>test</a> */}
             </div>
